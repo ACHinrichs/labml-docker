@@ -1,0 +1,25 @@
+services:
+  labml-mongodb:
+    image: mongo:latest
+    container_name: labml-mongodb
+    restart: unless-stopped
+    volumes:
+      - labml_mongo_data:/data/db
+    ports:
+      - "27017:27017"
+
+  labml-server:
+    build:
+      context: ./labml  # Path to the folder containing the Dockerfile
+    container_name: labml_server
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    environment:
+      - LABML_KEY=<your_labml_key>  # Replace with your actual LabML key
+      - MONGO_HOST=mongodb://labml-mongodb:27017  # MongoDB connection string
+    depends_on:
+      - labml-mongodb
+
+volumes:
+  labml_mongo_data:

@@ -1,0 +1,6 @@
+#+Title Labml Docker
+
+This is a docker image for running the [[https://github.com/labmlai/labml][labml]] server.
+
+This repo contains a Dockerfile that builds an image for the labml server itself,
+as well as a docker-compose file that runs the labml server with a MongoDB.
