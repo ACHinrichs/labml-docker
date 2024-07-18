@@ -14,7 +14,7 @@ services:
     container_name: labml_server
     restart: unless-stopped
     ports:
-      - "5000:5000"
+      - "5005:5005"
     environment:
       - LABML_KEY=<your_labml_key>  # Replace with your actual LabML key
       - MONGO_HOST=mongodb://labml-mongodb:27017  # MongoDB connection string
